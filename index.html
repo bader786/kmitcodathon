@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeAccelerate - Codathon 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        #canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            color: #00ffcc;
+            text-shadow: 0 0 10px #00ffcc;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #cccccc;
+        }
+
+        .countdown {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+        }
+
+        .countdown h2 {
+            font-size: 2em;
+            color: #00ffcc;
+        }
+
+        .countdown #timer {
+            font-size: 1.5em;
+            color: #ffffff;
+            margin-top: 10px;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: #00ffcc;
+            margin-bottom: 20px;
+        }
+
+        section p, section ul {
+            font-size: 1.1em;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        section ul {
+            list-style: none;
+        }
+
+        section ul li {
+            margin: 10px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #00ffcc;
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin: 20px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #00ffcc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #cccccc;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            section {
+                margin: 20px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <header>
+        <h1>CodeAccelerate 2025</h1>
+        <p>Keshav Memorial College of Engineering and Technology</p>
+    </header>
+
+    <div class="countdown">
+        <h2>Event Countdown</h2>
+        <div id="timer"></div>
+    </div>
+
+    <section id="about">
+        <h2>About CodeAccelerate</h2>
+        <p>
+            CodeAccelerate is the flagship codathon hosted by Keshav Memorial College of Engineering and Technology, Hyderabad. Join us for an exhilarating 9-hour coding marathon where innovators and coders compete to solve real-world challenges. Showcase your skills, collaborate with peers, and win exciting prizes!
+        </p>
+    </section>
+
+    <section id="details">
+        <h2>Event Details</h2>
+        <ul>
+            <li><strong>Date:</strong> May 10 , 2025</li>
+            <li><strong>Venue:</strong> KMIT Campus, Narayanguda, Hyderabad</li>
+            <li><strong>Team Size:</strong> Individual</li>
+            <li><strong>Categories:</strong> Web Development, AI/ML, Data Science, IoT</li>
+            <li><strong>Prizes:</strong> Cash prizes worth ₹1,00,000 and goodies</li>
+        </ul>
+    </section>
+
+    <section id="register">
+        <h2>Registration Closed</h2>
+        <p>
+            Registrations for CodeAccelerate 2025 are now closed. Stay tuned for updates and join us at the event!
+        </p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>
+            For queries, reach out to us at:
+        </p>
+        <ul>
+            <li><strong>Email:</strong> info@kmit.in</li>
+            
+            <li><strong>Address:</strong> Keshav Memorial College of Engineering and Technology, Narayanguda, Hyderabad, Telangana
+        </ul>
+    </section>
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script>
+        // Three.js Background Animation
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas'), alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        const particles = new THREE.Group();
+        const particleCount = 1000;
+        const geometry = new THREE.SphereGeometry(0.05, 16, 16);
+        const material = new THREE.MeshBasicMaterial({ color: 0x00ffcc });
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = new THREE.Mesh(geometry, material);
+            particle.position.set(
+                (Math.random() - 0.5) * 100,
+                (Math.random() - 0.5) * 100,
+                (Math.random() - 0.5) * 100
+            );
+            particles.add(particle);
+        }
+
+        scene.add(particles);
+        camera.position.z = 50;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.rotation.y += 0.002;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+        });
+
+        // Countdown Timer
+        const eventDate = new Date('2025-05-10T10:00:00').getTime();
+        const timerElement = document.getElementById('timer');
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                timerElement.innerHTML = 'Event Started!';
+            }
+        }
+
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
