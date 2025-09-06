@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeAccelerate - Codathon 2025</title>
+    <title>TechNova Hackathon 2025</title>
     <style>
         * {
             margin: 0;
@@ -35,8 +35,8 @@
 
         header h1 {
             font-size: 3.5em;
-            color: #00ffcc;
-            text-shadow: 0 0 10px #00ffcc;
+            color: #8e2de2;
+            text-shadow: 0 0 10px #8e2de2;
         }
 
         header p {
@@ -55,7 +55,7 @@
 
         .countdown h2 {
             font-size: 2em;
-            color: #00ffcc;
+            color: #8e2de2;
         }
 
         .countdown #timer {
@@ -75,7 +75,7 @@
 
         section h2 {
             font-size: 2em;
-            color: #00ffcc;
+            color: #8e2de2;
             margin-bottom: 20px;
         }
 
@@ -96,8 +96,8 @@
         .cta-button {
             display: inline-block;
             padding: 15px 30px;
-            background: #00ffcc;
-            color: #0a0a0a;
+            background: #8e2de2;
+            color: #ffffff;
             text-decoration: none;
             font-weight: bold;
             border-radius: 5px;
@@ -107,7 +107,7 @@
 
         .cta-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 15px #00ffcc;
+            box-shadow: 0 0 15px #8e2de2;
         }
 
         footer {
@@ -132,39 +132,38 @@
 <body>
     <canvas id="canvas"></canvas>
     <header>
-        <h1>CodeAccelerate 2025</h1>
-        <p>Keshav Memorial College of Engineering and Technology</p>
-
+        <h1>TechNova Hackathon 2025</h1>
+        <p>Global Innovate Labs</p>
     </header>
 
     <div class="countdown">
         <h2>Event Countdown</h2>
-         <button onclick="window.location.href='upi://pay?pa=9390430571@axl&am=10.00&tn=Chitti_Payment&cu=INR'"><h3><b>Pay Now</b></h3></button>
         <div id="timer"></div>
     </div>
 
     <section id="about">
-        <h2>About CodeAccelerate</h2>
+        <h2>About TechNova Hackathon</h2>
         <p>
-            CodeAccelerate is the flagship codathon hosted by Keshav Memorial College of Engineering and Technology, Hyderabad. Join us for an exhilarating 9-hour coding marathon where innovators and coders compete to solve real-world challenges. Showcase your skills, collaborate with peers, and win exciting prizes!
+            TechNova Hackathon 2025 is the premier coding event hosted by Global Innovate Labs, Hyderabad. Join us for an intense 24-hour coding marathon where innovators and coders collaborate to tackle real-world challenges. Showcase your skills, work in diverse teams, and compete for incredible prizes!
         </p>
     </section>
 
     <section id="details">
         <h2>Event Details</h2>
         <ul>
-            <li><strong>Date:</strong> May 10 , 2025</li>
-            <li><strong>Venue:</strong> KMIT Campus, Narayanguda, Hyderabad</li>
-            <li><strong>Team Size:</strong> Individual</li>
-            <li><strong>Categories:</strong> Web Development, AI/ML, Data Science, IoT</li>
-            <li><strong>Prizes:</strong> Cash prizes worth ₹1,00,000 and goodies</li>
+            <li><strong>Date:</strong> September 6, 2025, 9:00 PM - September 7, 2025, 9:00 PM</li>
+            <li><strong>Venue:</strong> GIL Campus, Narayanguda, Hyderabad</li>
+            <li><strong>Team Size:</strong> 5 members (at least 2 girls per team)</li>
+            <li><strong>Categories:</strong> Web Development, AI/ML, Data Science, IoT, Cybersecurity</li>
+            <li><strong>Prizes:</strong> ₹30,000 for the 1st prize-winning team, certificates for 5 runner-up teams</li>
+            <li><strong>Registration Fee:</strong> ₹200 per member (₹1000 per team)</li>
         </ul>
     </section>
 
     <section id="register">
-        <h2>Registration Closed</h2>
+        <h2>Register Now</h2>
         <p>
-            Registrations for CodeAccelerate 2025 are now closed. Stay tuned for updates and join us at the event!
+            Registrations for TechNova 2025 are now closed. Stay tuned for updates and join us at the event!
         </p>
     </section>
 
@@ -174,13 +173,14 @@
             For queries, reach out to us at:
         </p>
         <ul>
-            <li><strong>Email:</strong> info@kmit.in</li>
-            
-            <li><strong>Address:</strong> Keshav Memorial College of Engineering and Technology, Narayanguda, Hyderabad, Telangana
+            <li><strong>Email:</strong> technovahack@gmail.com</li>
+            <li><strong>Address:</strong> Global Innovate Labs, Narayanguda, Hyderabad, Telangana</li>
         </ul>
     </section>
 
-    
+    <footer>
+        <p>&copy; 2025 Global Innovate Labs. All rights reserved.</p>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script>
@@ -193,7 +193,7 @@
         const particles = new THREE.Group();
         const particleCount = 1000;
         const geometry = new THREE.SphereGeometry(0.05, 16, 16);
-        const material = new THREE.MeshBasicMaterial({ color: 0x00ffcc });
+        const material = new THREE.MeshBasicMaterial({ color: 0x8e2de2 });
 
         for (let i = 0; i < particleCount; i++) {
             const particle = new THREE.Mesh(geometry, material);
@@ -222,7 +222,7 @@
         });
 
         // Countdown Timer
-        const eventDate = new Date('2025-05-10T10:00:00').getTime();
+        const eventDate = new Date('2025-09-06T21:00:00+05:30').getTime();
         const timerElement = document.getElementById('timer');
 
         function updateTimer() {
@@ -237,7 +237,7 @@
             timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
             if (distance < 0) {
-                timerElement.innerHTML = 'Event Started!';
+                timerElement.innerHTML = 'Hackathon Started!';
             }
         }
 
